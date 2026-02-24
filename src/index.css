@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark navy background */
+    --background: 220 47% 9%;
+    --background-alt: 222 52% 12%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 48% 11%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 48% 11%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Gold primary */
+    --primary: 43 80% 55%;
+    --primary-foreground: 222 47% 9%;
+
+    /* Secondary gold lighter */
+    --secondary: 43 90% 65%;
+    --secondary-foreground: 222 47% 9%;
+
+    --muted: 222 40% 16%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 43 80% 55%;
+    --accent-foreground: 222 47% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 20%;
+    --input: 222 40% 16%;
+    --ring: 43 80% 55%;
+
+    --radius: 0.75rem;
+
+    /* Gold glow values */
+    --glow-gold: 0 0 20px hsl(43 80% 55% / 0.5), 0 0 50px hsl(43 80% 55% / 0.2);
+    --glow-card: 0 0 40px hsl(43 80% 55% / 0.06);
+
+    /* Glass */
+    --glass-bg: hsl(222 48% 11% / 0.95);
+    --glass-border: hsl(43 80% 55% / 0.3);
+    --glass-hover-border: hsl(43 80% 55% / 0.6);
+
+    --sidebar-background: 222 48% 9%;
+    --sidebar-foreground: 210 40% 92%;
+    --sidebar-primary: 43 80% 55%;
+    --sidebar-primary-foreground: 222 47% 9%;
+    --sidebar-accent: 222 40% 16%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 43 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(220 47% 9%);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', 'Inter', serif;
+  }
+}
+
+@layer utilities {
+  /* Gold text highlight */
+  .text-gold {
+    color: hsl(43 80% 55%);
+  }
+
+  .text-gold-light {
+    color: hsl(43 90% 65%);
+  }
+
+  /* Glow effects */
+  .glow-gold {
+    box-shadow: var(--glow-gold);
+  }
+
+  /* Quiz card */
+  .quiz-card {
+    background: hsl(222 48% 11% / 0.98);
+    border: 1px solid hsl(43 80% 55% / 0.25);
+    border-radius: 16px;
+    box-shadow: 0 0 60px hsl(43 80% 55% / 0.08), 0 20px 60px hsl(0 0% 0% / 0.5);
+  }
+
+  /* Gold button */
+  .btn-gold {
+    background: hsl(43 80% 55%);
+    color: hsl(222 47% 9%);
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  .btn-gold:hover {
+    background: hsl(43 90% 62%);
+    box-shadow: 0 0 20px hsl(43 80% 55% / 0.5), 0 4px 20px hsl(43 80% 55% / 0.3);
+    transform: translateY(-1px);
+  }
+
+  /* Outlined gold button */
+  .btn-gold-outline {
+    background: transparent;
+    color: hsl(43 80% 55%);
+    border: 1.5px solid hsl(43 80% 55% / 0.5);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  .btn-gold-outline:hover {
+    border-color: hsl(43 80% 55%);
+    background: hsl(43 80% 55% / 0.08);
+  }
+
+  /* Progress bar track */
+  .progress-track {
+    background: hsl(222 30% 20%);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    background: linear-gradient(90deg, hsl(43 80% 45%), hsl(43 90% 60%));
+    border-radius: 999px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px hsl(43 80% 55% / 0.5);
+  }
+
+  /* Navy background variants */
+  .bg-navy {
+    background-color: hsl(220 47% 9%);
+  }
+  .bg-navy-card {
+    background-color: hsl(222 48% 11%);
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-out {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-30px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 15px hsl(43 80% 55% / 0.3); }
+  50% { box-shadow: 0 0 30px hsl(43 80% 55% / 0.6), 0 0 60px hsl(43 80% 55% / 0.2); }
+}
+
+@layer utilities {
+  .animate-fade-up { animation: fade-up 0.5s ease-out forwards; }
+  .animate-slide-in { animation: slide-in 0.4s ease-out forwards; }
+  .animate-pulse-gold { animation: pulse-gold 2.5s ease-in-out infinite; }
+  .animate-accordion-down { animation: accordion-down 0.2s ease-out; }
+  .animate-accordion-up { animation: accordion-up 0.2s ease-out; }
+}
